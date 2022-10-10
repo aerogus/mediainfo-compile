@@ -12,8 +12,8 @@ declare -r URL="https://mediaarea.net/download/binary/mediainfo/${VERSION}/${FIL
 if [[ -f "/etc/redhat-release" ]]; then
   yum install -y gcc-c++ make git
   BIN="mediainfo-centos"
-elif [[ -f "/etc/debian-release" ]]; then
-  apt-get update && apt install -y g++ make
+elif [[ -f "/etc/debian_version" ]]; then
+  apt-get update && apt install -y curl g++ make file
   BIN="mediainfo-debian"
 else
   # brew install xxx ?
