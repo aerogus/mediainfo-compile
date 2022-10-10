@@ -13,7 +13,7 @@ if [[ -f "/etc/redhat-release" ]]; then
   yum install -y gcc-c++ make git
   BIN="mediainfo-centos"
 elif [[ -f "/etc/debian_version" ]]; then
-  apt-get update && apt install -y curl g++ make file
+  apt-get update && apt install -y curl g++ make file git
   BIN="mediainfo-debian"
 else
   # brew install xxx ?
