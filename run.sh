@@ -2,12 +2,19 @@
 
 ##
 # Compilation mediainfo multiplateformes
+#
+# Usage: ./run.sh [version]
 ##
 
 declare -r ABS_PATH="$( cd "$(dirname "$0")" || return; pwd -P )"
-declare -r VERSION="22.09"
+declare -r VERSION="$1" # ex: 23.03
 declare -r FILENAME="MediaInfo_CLI_${VERSION}_GNU_FromSource.tar.gz"
 declare -r URL="https://mediaarea.net/download/binary/mediainfo/${VERSION}/${FILENAME}"
+
+if [[ ! $VERSION ]]; then
+  echo "Usage: run.sh [version]"
+  exit 1
+fi
 
 if [[ -f "/etc/redhat-release" ]]; then
   yum install -y gcc-c++ make git
